@@ -2,61 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bestill kinobilletter</title>
+    <title>Title</title>
+    <script src ="main.js"></script>
 </head>
-<script src="oblig1.js"></script>
-<style>
-    p{
-        display: inline-block;
-        color: red;
-    }
-    input{
-        margin-left: 15px;
-    }
-    button{
-        margin-top: 15px;
-    }
-    table, th, td{
-        border: 1px black solid;
-    }
-
-    table{
-        border-collapse: collapse;
-    }
-</style>
 <body>
-<h1>Bestillinger av kinobilletter</h1>
-<label for="slctFilm">Velg film</label>
-<select id="slctFilm">
-    <option>Velg Film</option>
-    <option>Avatar</option>
-    <option>Taken</option>
-    <option>So Undercover</option>
-    <option>Wonka</option>
-    <option>Hunger Games</option>
-    <option>Barbie</option>
-    <option>Oppenheimer</option>
-</select>
-<p id="nullFilm"></p><br>
 
-<label for="inpAntall">Antall<input id="inpAntall" type="number" min="1"  style="width: 50px"></label>
-<p id="nullAntall"></p> <br>
-<label for="inpFornavn">Fornavn<input id="inpFornavn" type="text"></label>
-<p id="nullFornavn"></p> <br>
-<label for="inpEtternavn">Etternavn<input id="inpEtternavn" type="text"></label>
-<p id="nullEtternavn"></p> <br>
-<label for="inpTelefonnr">Telefonnr.<input id="inpTelefonnr" type="text"></label>
-<p id="nullTelefonnr"></p><br>
-<label for="inpEpost">Epost<input id="inpEpost" type="email"></label>
-<p id="nullEpost"></p><br>
+<h1> Bestilling av kinobilletter</h1>
+<table>
+    <tr>
+        <td> Velg film </td>
+        <td>
+            <select  id="filmNavn">
+                <option value="Velg film : ">Velg film her</option>
+                <option value="Taken 2">Taken 2</option>
+                <option value="Wonka">Wonka</option>
+                <option value="Poor Things">Poor Things</option>
+                <option value="Oppenheimer">Oppenheimer</option>
+            </select>
+            <span id ="feilFilmNavn" style = "color: red"></span>
+        </td>
+    </tr>
+    <tr><td><br></td></tr>
 
-<button onclick="kjopBillett()">Kjøp billett</button>
+    <tr>
+        <td> Antall billetter</td>
+        <td><input type="text" size="2" id="antallBilletter">
+            <span id="feilAntallBilletter"style="color: red"></span>
+        </td>
+    </tr>
+    <tr><td><br></td></tr>
+    <tr>
+        <td>Fornavn</td>
+        <td><input type="text" id ="fornavn">
+            <span id="feilFornavn" style="color: red"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>Etternavn</td>
+        <td><input type="text" id="etternavn">
+            <span id="feilEtternavn" style="color: red"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>Telefonnr</td>
+        <td><input type="text" id="telefonNr" pattern="[0-9]{8}" required>
+            <span id="feilTelefonNr" style="color: red"></span>
+        </td>
 
-<h2>Alle biletter</h2>
+    </tr>
+    <tr>
+        <td>Epost</td>
+        <td><input type="text" id="epost">
+            <span id="feilEpost" style="color: red"></span>
+        </td>
+    </tr>
+    <tr>
+        <td><button onclick ="kjopBillett()">Kjøp billett</button>
+        </td>
+    </tr>
+</table>
 
-<table id="tblFilmer"></table>
+<h2> Alle billetter</h2>
+<div id="output"></div>
 
-<button id="slettKnp" onclick="slettBillett()">Slett alle billettene</button>
-
+<br>
+<button onclick=slett()>Slett alle billettene</button>
 </body>
 </html>
